@@ -14,22 +14,22 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
 
 // Create a base layer that holds both maps.
 let baseMaps = {
-  Street: streets,
-  Dark: dark
+  "Street": streets,
+  "Satellite Streets": satelliteStreets
 };
 
 // Create the map object with center, zoom level and default layer.
 let map = L.map('mapid', {
-  center: [30, 30],
-  zoom: 2,
+  center: [43.7, -79.3],
+  zoom: 11,
   layers: [streets]
 })
 
 // Pass our map layers into our layers control and add the layers control to the map.
 L.control.layers(baseMaps).addTo(map);
 
-// Accessing the Toronto airline routes GeoJSON URL.
-let torontoData = "https://raw.githubusercontent.com/whitneyshine/Mapping_Earthquakes/main/torontoRoutes.json";
+// Accessing the Toronto neighborhoods GeoJSON URL.
+let torontoHoods = "https://raw.githubusercontent.com/whitneyshine/Mapping_Earthquakes/main/torontoNeighborhoods.json";
 
 // Create a style for the lines.
 let myStyle = {
@@ -38,14 +38,9 @@ let myStyle = {
 }
 
 // Grabbing our GeoJSON data.
-d3.json(torontoData).then(function(data) {
+d3.json(torontoHoods).then(function(data) {
   console.log(data);
 // Creating a GeoJSON layer with the retrieved data.
-L.geoJson(data, {
-	style: myStyle, 
-	onEachFeature: function(feature, layer) {
-		layer.bindPopup("<h3> Airline: " + feature.properties.airline +"</h3> <hr> <h3> Destination: " + feature.properties.dst + "</h3>");
-	}
-}).addTo(map);
+L.geoJson(data,).addTo(map);
 });
 

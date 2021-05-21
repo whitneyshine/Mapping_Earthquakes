@@ -15,14 +15,14 @@ attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap
 // Create a base layer that holds both maps.
 let baseMaps = {
   "Street": streets,
-  "Satellite Streets": satelliteStreets
+  "Satellite Streets": satelliteStreets,
 };
 
 // Create the map object with center, zoom level and default layer.
 let map = L.map('mapid', {
   center: [43.7, -79.3],
   zoom: 11,
-  layers: [streets]
+  layers: [satelliteStreets]
 })
 
 // Pass our map layers into our layers control and add the layers control to the map.
@@ -30,12 +30,6 @@ L.control.layers(baseMaps).addTo(map);
 
 // Accessing the Toronto neighborhoods GeoJSON URL.
 let torontoHoods = "https://raw.githubusercontent.com/whitneyshine/Mapping_Earthquakes/main/torontoNeighborhoods.json";
-
-// Create a style for the lines.
-let myStyle = {
-  color: "#ffffa1",
-  weight: 2
-}
 
 // Grabbing our GeoJSON data.
 d3.json(torontoHoods).then(function(data) {

@@ -5,8 +5,8 @@ Basil and Sadhana like how you created your earthquake map with two different ma
 
 ![streets](streets.png)<br><br>
 
-![all_earthquakes](all_earthquakes.png)<br><br>
-
 ![tectonic_plates](tectonic_plates.png)<br><br>
+
+![all_earthquakes](all_earthquakes.png)<br><br>
 
 ![night](night.png)
